@@ -8,24 +8,25 @@
 #
 # You can modify the input array in-place.
 import  sys
-arr = [1, 2, 0]
+arr = [100,7]#[1, 2,0]#[3, 4, -1, 1]#[10,8,1,1,5,3]
 
 def lowestElement(arr):
-    arr_set = set()
+    #arr_set = set()
     max = 0
     low = sys.maxsize
+    missingElement=0
     for i in arr:
         if i<0:
             continue
         if i>max:
             max=i
-        if i not in arr_set:
-            if i<low:
+        #if i not in arr_set:
+        if i<low:
 
-                if abs(i-low)>1:
-                    missingElement=abs(i-low)
-                low = i
-                arr_set.add(i)
+            if abs(i-low)>1:
+                missingElement=i+1
+            low = i
+            #arr_set.add(i)
 
     if missingElement<max:
         print(missingElement)
